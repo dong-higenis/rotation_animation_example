@@ -12,7 +12,6 @@ class RotateAnimation extends StatefulWidget {
 class RotateAnimationState extends State<RotateAnimation>
     with TickerProviderStateMixin {
   late AnimationController animationController;
-  late Animation<double> rotationAnimation;
 
   bool forwardDirection = false;
   double rotationAngle = 0.0;
@@ -24,19 +23,6 @@ class RotateAnimationState extends State<RotateAnimation>
         duration: const Duration(milliseconds: 4000), vsync: this);
     animationController.value = 0.0;
 
-    final Animation<double> curve =
-        CurvedAnimation(parent: animationController, curve: Curves.linear);
-    rotationAnimation = Tween(begin: 0.0, end: 1.0).animate(curve)
-      ..addListener(() {
-        setState(() {});
-      });
-
-    animationController.addStatusListener((status) {
-      if (status == AnimationStatus.forward) {
-      } else if (status == AnimationStatus.reverse) {
-      } else if (status == AnimationStatus.completed) {
-      } else {}
-    });
     super.initState();
   }
 
