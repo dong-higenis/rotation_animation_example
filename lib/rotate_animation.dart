@@ -91,7 +91,6 @@ class RotateAnimationState extends State<RotateAnimation>
             } else {
               rotationAngle -= step;
             }
-            oldAngle = value;
             final angle = rotationAngle * (pi * 2);
             return Transform.rotate(
               angle: angle,
